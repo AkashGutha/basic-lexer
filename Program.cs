@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using lexer;
 
 namespace ConsoleApplication
@@ -8,7 +9,9 @@ namespace ConsoleApplication
         public static void Main(string[] args)
         {
             Console.WriteLine("Starting Lexer ....");
-            Lexer _lexer = new Lexer("x = 0");
+
+            string input = File.ReadAllText(@"./test/main.ms");
+            Lexer _lexer = new Lexer(input);
         }
     }
 }

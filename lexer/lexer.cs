@@ -21,23 +21,32 @@ namespace lexer
 
         private void Lex()
         {
+            var _tokenvalues = new List<string>();
 
             var _type = typeof(Patterns);
             var _fields = _type.GetConstantsValues<string>();
 
+            // building the last regex.
             StringBuilder sb = new StringBuilder();
             foreach (var pattern in _fields)
             {
                 sb.Append(pattern.ToString() + "|");
             }
-            sb.Remove(sb.Length-1, 1);
+            sb.Remove(sb.Length - 1, 1);
             Regex regex = new Regex(sb.ToString());
 
+            // the last regex to the console
             System.Console.WriteLine(sb.ToString());
 
+            //matching the and output the matches to console.
             foreach (var match in regex.Matches(this.input))
             {
-                System.Console.WriteLine(match.ToString());
+                _tokenvalues.Add(match.ToString());
+            }
+
+            foreach (var _token in _tokenvalues)
+            {
+                System.Console.WriteLine(_token.ToString());
             }
 
         }
