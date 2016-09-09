@@ -5,10 +5,14 @@ namespace lexer
     {
         public string value { get; set; }
         public token tok { get; set; }
-        public Node (string value , token tok)
+        public int row { get; set; }
+        public int col { get; set; }
+        public Node(string value, token tok, int row, int col)
         {
-          this.tok = tok;
-          this.value = value;
+            this.tok = tok;
+            this.value = value;
+            this.row = row;
+            this.col = col;
         }
     }
 }
