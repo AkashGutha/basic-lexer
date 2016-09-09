@@ -14,5 +14,11 @@ namespace lexer
             this.row = row;
             this.col = col;
         }
+
+        public override string ToString()
+        {
+            return "Token : " + tok.ToString() +
+                " Row : " + row + " Col : " + col + " Value : " + value;
+        }
     }
 }

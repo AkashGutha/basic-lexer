@@ -2,13 +2,19 @@ namespace lexer
 {
     public enum token
     {
+        // arthimetic
+        add,
+        sub,
+        div,
+        mul,
+        modulo,
 
         //identifiers
-        idToken,
+        identifier,
 
         //operators
-        assignmentToken,
-        equivalenceToken
+        assignment,
+        equivalence
 
     }
 }
