@@ -85,26 +85,12 @@ namespace lexer
                         LexingState = transitions[(int)LexingState, 1];
                         break;
 
-                    case '+':
-                    case '-':
-                    case '/':
-                    case '%':
-                    case '*':
-                        if (LexingState == state.waiting)
-                            foreach (var pattern in _fields)
-                            {
-                                Regex r = new Regex(pattern);
-                                if (r.IsMatch(sb.ToString()))
-                                {
-                                    var tokentype = (token)Enum.Parse(typeof(token), "add");
-                                    _tokenvalues.Add(new Node(sb.ToString(), tokentype, 0, 0));
-                                    sb.Clear();
-                                    continue;
-                                }
-                            }
-                        sb.Append(stream[i]);
-
-                        LexingState = transitions[2 + (int)LexingState, 1];
+                        case '+':
+                        case '-':
+                        case '/':
+                        case '%':
+                        case '*':
+                        
                         break;
 
                     default:
